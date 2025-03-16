@@ -7,8 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Track Your Package</h1>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+        <h1 class="text-2xl font-bold mb-4">Track Your Package</h1>
+        <input type="text" id="trackingNumber" placeholder="Enter Tracking Number"
+            class="border border-gray-300 p-2 rounded w-full mb-4">
+        <button onclick="trackPackage()" 
+            class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700">
+            Track
+        </button>
+        <p id="trackingResult" class="mt-4 text-gray-600"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
