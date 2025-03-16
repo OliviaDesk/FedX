@@ -3,37 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedEx Tracking - Enter Tracking Number</title>
+    <title>FedEx Tracking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .tracking-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 750px;
+            position: relative;
+        }
+        .tracking-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tracking-header i {
+            color: #4F46E5;
+        }
+        .tracking-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .tracking-icons i {
+            cursor: pointer;
+            color: #666;
+            transition: transform 0.2s ease-in-out;
+        }
+        .tracking-icons i:hover {
+            transform: scale(1.2);
+            color: #4F46E5;
+        }
+        .tracking-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            position: relative;
+            margin-top: 20px;
+            padding-left: 30px;
+            border-left: 4px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            position: relative;
+        }
+        .step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            width: 18px;
+            height: 18px;
+            background: #ddd;
+            border-radius: 50%;
+        }
+        .step.active::before {
+            background: #4F46E5;
+        }
+        .step-content {
+            font-size: 0.9rem;
+            color: #333;
+            margin-left: 15px;
+        }
+        .step-content strong {
+            font-weight: 600;
+        }
+        .bounce {
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-5px); }
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
-    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-center">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/FedEx_Express.svg" alt="FedEx Logo" class="h-10">
-    </header>
-
-    <div class="flex flex-grow items-center justify-center px-4">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Track Your Shipment</h1>
-            <input type="text" id="trackingNumber" class="w-full border rounded p-2 mb-4" placeholder="Enter Tracking Number" />
-            <button onclick="trackPackage()" class="w-full bg-purple-800 text-white py-2 rounded hover:bg-purple-900 transition">Track</button>
+<body>
+    <div class="tracking-container">
+        <div class="tracking-header">
+            <span><i class="fas fa-shipping-fast"></i> FedEx Tracking</span>
+            <div class="tracking-icons">
+                <i class="fas fa-pen"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-share"></i>
+            </div>
+        </div>
+        <div class="tracking-info">
+            <p><strong>Tracking ID:</strong> 123456789012</p>
+            <p><strong>Delivery Status:</strong> In Transit</p>
+            <p><strong>Scheduled Delivery Date:</strong> Pending</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="step active bounce">
+                <div class="step-content">
+                    <strong>Package Received by FedEx</strong><br>
+                    At FedEx destination facility, Bridgeport, WV <br>
+                    12/11/2022 5:36 AM
+                </div>
+            </div>
+            <div class="step active bounce">
+                <div class="step-content">
+                    <strong>In Transit</strong><br>
+                    Moving through FedEx network
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-content">
+                    <strong>Out for Delivery</strong><br>
+                    Expected soon
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-content">
+                    <strong>Delivered</strong><br>
+                    Awaiting final scan
+                </div>
+            </div>
         </div>
     </div>
-
-    <script>
-        function trackPackage() {
-            const trackingNumber = document.getElementById('trackingNumber').value;
-            if (trackingNumber) {
-                window.location.href = `tracking.html?tracking=${trackingNumber}`;
-            } else {
-                alert('Please enter a tracking number');
-            }
-        }
-    </script>
+    <div class="footer">
+        &copy; 2025 FedEx. All rights reserved.
+    </div>
 </body>
 </html>
