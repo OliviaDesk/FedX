@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftShip Express - Clearing Customs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .tracking-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 750px;
+            position: relative;
+        }
+        .tracking-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1d1d1b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tracking-header i {
+            color: #660066; /* SwiftShip Express purple */
+        }
+        .tracking-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .tracking-icons i {
+            cursor: pointer;
+            color: #666;
+            transition: transform 0.2s ease-in-out;
+        }
+        .tracking-icons i:hover {
+            transform: scale(1.2);
+            color: #660066; /* SwiftShip Express purple */
+        }
+        .tracking-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            position: relative;
+            margin-top: 20px;
+            padding-left: 30px;
+            border-left: 4px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            position: relative;
+        }
+        .step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            width: 18px;
+            height: 18px;
+            background: #ddd;
+            border-radius: 50%;
+            transition: background 0.3s ease-in-out;
+        }
+        .step.active::before {
+            background: #ffcc00; /* Yellow for "Clearing Customs" */
+        }
+        .step.complete::before {
+            background: #ff6600; /* SwiftShip Express orange */
+        }
+        .step-content {
+            font-size: 0.9rem;
+            color: #333;
+            margin-left: 15px;
+        }
+        .step-content strong {
+            font-weight: 600;
+        }
+        .package-info {
+            margin-top: 20px;
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .package-info p {
+            font-size: 1rem;
+            color: #333;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracking-container">
+        <div class="tracking-header">
+            <span><i class="fas fa-shipping-fast"></i> SwiftShip Express - Clearing Customs</span>
+            <div class="tracking-icons">
+                <i class="fas fa-pen"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-share"></i>
+            </div>
+        </div>
+        <div class="tracking-info">
+            <p><strong>Status:</strong> Clearing Customs</p>
+            <p><strong>Scheduled Delivery Date:</strong> Pending</p>
+            <p><strong>Reason:</strong> Package undergoing customs inspection</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="step complete">
+                <div class="step-content">
+                    <strong>Processed</strong><br>
+                    Package processed at SwiftShip Express facility
+                </div>
+            </div>
+            <div class="step complete">
+                <div class="step-content">
+                    <strong>In Transit</strong><br>
+                    Package is currently in transit and moving through our network
+                </div>
+            </div>
+            <div class="step complete">
+                <div class="step-content">
+                    <strong>Arrived at Facility</strong><br>
+                    Package has arrived at SwiftShip Express facility in Denver, CO
+                </div>
+            </div>
+            <div class="step complete">
+                <div class="step-content">
+                    <strong>On Vehicle for Delivery</strong><br>
+                    Package is on its way to be delivered to the recipient
+                </div>
+            </div>
+            <div class="step complete">
+                <div class="step-content">
+                    <strong>Held at Customs</strong><br>
+                    Package is currently awaiting clearance at customs
+                </div>
+            </div>
+            <div class="step active">
+                <div class="step-content">
+                    <strong>Clearing Customs</strong><br>
+                    Package is undergoing customs inspection
+                </div>
+            </div>
+        </div>
+
+        <!-- Package Information Section -->
+        <div class="package-info">
+            <h3 class="font-semibold">Package Information</h3>
+            <p><strong>Sender:</strong> John Doe, 123 Main St, Springfield, IL</p>
+            <p><strong>Recipient:</strong> Jane Smith, 456 Oak Ave, Denver, CO</p>
+            <p><strong>Weight:</strong> 2.5 kg</p>
+            <p><strong>Item:</strong> Laptop</p>
+            <p><strong>Dimensions:</strong> 35cm x 25cm x 5cm</p>
+            <p><strong>Tracking ID:</strong> 9876543210</p>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 SwiftShip Express. All rights reserved.
+    </div>
+</body>
+</html>
