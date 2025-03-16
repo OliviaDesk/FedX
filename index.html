@@ -5,50 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FedEx Tracking</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
-    <!-- Header with Logo -->
-    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-center gap-3">
-        <img src="logo.png" alt="FedEx Logo" class="h-10">
-        <h1 class="text-2xl font-bold">FedEx Tracking</h1>
+    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-between px-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/FedEx_Express.svg" alt="FedEx Logo" class="h-10">
+        <h1 class="text-2xl font-bold">Tracking</h1>
+        <a href="#" class="text-sm text-blue-200 hover:text-white">Track Another Shipment</a>
     </header>
 
-    <!-- Tracking Box -->
     <div class="flex flex-grow items-center justify-center px-4">
-        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md text-center">
-            <h2 class="text-purple-800 text-2xl font-semibold mb-4">Track Your Package</h2>
-            <p class="text-gray-500 mb-4">Enter your tracking number below</p>
-
-            <input type="text" id="trackingNumber" placeholder="Tracking Number"
-                class="border border-gray-300 p-3 rounded w-full mb-4 focus:ring-2 focus:ring-orange-500">
-
-            <button onclick="trackPackage()" 
-                class="bg-purple-800 text-white px-4 py-2 rounded w-full hover:bg-orange-500 transition duration-300">
-                Track Package
-            </button>
-
-            <!-- Tracking Result -->
-            <div id="trackingResult" class="mt-4 text-gray-700 font-medium"></div>
-
-            <!-- Progress Bar -->
-            <div id="progressBarContainer" class="hidden w-full bg-gray-200 rounded-full mt-4">
-                <div id="progressBar" class="bg-orange-500 text-xs leading-none py-2 text-center text-white rounded-full" style="width: 0%;">0%</div>
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg card fade-in">
+            <h2 class="text-gray-600 text-lg font-semibold">Scheduled Delivery Date</h2>
+            <p class="text-3xl font-bold text-gray-800">Pending</p>
+            <p class="text-purple-800 text-sm font-medium">On Time</p>
+            
+            <h3 class="text-gray-600 mt-4 font-semibold">Delivery Status</h3>
+            <p class="text-xl font-semibold text-purple-800">In Transit <i class="fas fa-arrow-right"></i></p>
+            
+            <h3 class="text-gray-600 mt-4 font-semibold">Tracking ID</h3>
+            <p class="text-lg font-semibold">123456789012</p>
+            
+            <div class="mt-6 border-t pt-4">
+                <h3 class="text-gray-600 font-semibold">Alerts (1)</h3>
+                <p class="text-gray-500 border rounded p-3 mt-2"> <i class="fas fa-info-circle text-purple-800"></i> No scheduled delivery date available at this time.</p>
+            </div>
+            
+            <div class="mt-6 border-t pt-4">
+                <h3 class="text-gray-600 font-semibold">From</h3>
+                <p class="text-md text-gray-700">Package received by FedEx</p>
+                <p class="text-sm text-gray-500">At FedEx destination facility</p>
+                <p class="text-sm text-gray-500">Bridgeport, WV</p>
+                <p class="text-sm text-gray-500">12/11/2022 5:36 AM</p>
             </div>
 
-            <!-- Tracking History -->
-            <div id="trackingHistory" class="mt-4 text-left text-sm hidden">
-                <h3 class="text-purple-800 font-semibold">Tracking History</h3>
-                <ul id="trackingSteps" class="text-gray-600"></ul>
+            <div class="mt-6 border-t pt-4">
+                <h3 class="text-gray-600 font-semibold">Out for Delivery</h3>
+                <p class="text-gray-500">Pending</p>
             </div>
+
+            <a href="#" class="block mt-4 text-blue-600 text-sm font-medium">View travel history</a>
         </div>
     </div>
 
     <footer class="text-center text-gray-500 py-4 text-sm">
         &copy; 2025 FedEx Tracking | Designed by Remi
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
