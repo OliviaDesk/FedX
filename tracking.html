@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedEx Tracking</title>
+    <title>SwiftShip Express Tracking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -30,14 +30,14 @@
         .tracking-header {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #333;
+            color: #1d1d1b;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .tracking-header i {
-            color: #4F46E5;
+            color: #660066; /* SwiftShip Express purple */
         }
         .tracking-icons {
             display: flex;
@@ -50,7 +50,7 @@
         }
         .tracking-icons i:hover {
             transform: scale(1.2);
-            color: #4F46E5;
+            color: #660066; /* SwiftShip Express purple */
         }
         .tracking-info p {
             font-size: 0.95rem;
@@ -79,9 +79,13 @@
             height: 18px;
             background: #ddd;
             border-radius: 50%;
+            transition: background 0.3s ease-in-out;
         }
         .step.active::before {
-            background: #4F46E5;
+            background: #660066; /* SwiftShip Express purple */
+        }
+        .step.complete::before {
+            background: #ff6600; /* SwiftShip Express orange */
         }
         .step-content {
             font-size: 0.9rem;
@@ -109,7 +113,7 @@
 <body>
     <div class="tracking-container">
         <div class="tracking-header">
-            <span><i class="fas fa-shipping-fast"></i> FedEx Tracking</span>
+            <span><i class="fas fa-shipping-fast"></i> SwiftShip Express Tracking</span>
             <div class="tracking-icons">
                 <i class="fas fa-pen"></i>
                 <i class="fas fa-star"></i>
@@ -117,7 +121,6 @@
             </div>
         </div>
         <div class="tracking-info">
-            <p><strong>Tracking ID:</strong> 123456789012</p>
             <p><strong>Delivery Status:</strong> In Transit</p>
             <p><strong>Scheduled Delivery Date:</strong> Pending</p>
         </div>
@@ -125,15 +128,15 @@
         <div class="progress-bar">
             <div class="step active bounce">
                 <div class="step-content">
-                    <strong>Package Received by FedEx</strong><br>
-                    At FedEx destination facility, Bridgeport, WV <br>
+                    <strong>Package Received by SwiftShip Express</strong><br>
+                    At SwiftShip Express destination facility, Bridgeport, WV <br>
                     12/11/2022 5:36 AM
                 </div>
             </div>
-            <div class="step active bounce">
+            <div class="step complete">
                 <div class="step-content">
                     <strong>In Transit</strong><br>
-                    Moving through FedEx network
+                    Moving through SwiftShip Express network
                 </div>
             </div>
             <div class="step">
@@ -151,7 +154,7 @@
         </div>
     </div>
     <div class="footer">
-        &copy; 2025 FedEx. All rights reserved.
+        &copy; 2025 SwiftShip Express. All rights reserved.
     </div>
 </body>
 </html>
