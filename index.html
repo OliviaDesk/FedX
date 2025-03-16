@@ -3,73 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedEx Tracking</title>
+    <title>FedEx Tracking - Enter Tracking Number</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
-    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-between px-6">
+    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-center">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/FedEx_Express.svg" alt="FedEx Logo" class="h-10">
-        <h1 class="text-2xl font-bold">Tracking</h1>
-        <a href="#" class="text-sm text-blue-200 hover:text-white">Track Another Shipment</a>
     </header>
 
     <div class="flex flex-grow items-center justify-center px-4">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg card fade-in">
-            <h2 class="text-gray-600 text-lg font-semibold">Scheduled Delivery Date</h2>
-            <p class="text-3xl font-bold text-gray-800">Pending</p>
-            <p class="text-purple-800 text-sm font-medium">On Time</p>
-            
-            <h3 class="text-gray-600 mt-4 font-semibold">Delivery Status</h3>
-            <p class="text-xl font-semibold text-purple-800">In Transit <i class="fas fa-arrow-right"></i></p>
-            
-            <h3 class="text-gray-600 mt-4 font-semibold">Tracking ID</h3>
-            <p class="text-lg font-semibold">123456789012</p>
-            
-            <div class="mt-6 border-t pt-4">
-                <h3 class="text-gray-600 font-semibold">Alerts (1)</h3>
-                <p class="text-gray-500 border rounded p-3 mt-2"> <i class="fas fa-info-circle text-purple-800"></i> No scheduled delivery date available at this time.</p>
-            </div>
-            
-            <div class="mt-6 border-t pt-4">
-                <h3 class="text-gray-600 font-semibold">From</h3>
-                <p class="text-md text-gray-700">Package received by FedEx</p>
-                <p class="text-sm text-gray-500">At FedEx destination facility</p>
-                <p class="text-sm text-gray-500">Bridgeport, WV</p>
-                <p class="text-sm text-gray-500">12/11/2022 5:36 AM</p>
-            </div>
-
-            <div class="mt-6 border-t pt-4">
-                <h3 class="text-gray-600 font-semibold">Out for Delivery</h3>
-                <p class="text-gray-500">Pending</p>
-            </div>
-
-            <a href="#" class="block mt-4 text-blue-600 text-sm font-medium">View travel history</a>
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Track Your Shipment</h1>
+            <input type="text" id="trackingNumber" class="w-full border rounded p-2 mb-4" placeholder="Enter Tracking Number" />
+            <button onclick="trackPackage()" class="w-full bg-purple-800 text-white py-2 rounded hover:bg-purple-900 transition">Track</button>
         </div>
     </div>
 
-    <footer class="text-center text-gray-500 py-4 text-sm">
-        &copy; 2025 FedEx Tracking | Designed by Remi
-    </footer>
+    <script>
+        function trackPackage() {
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            if (trackingNumber) {
+                window.location.href = `tracking.html?tracking=${trackingNumber}`;
+            } else {
+                alert('Please enter a tracking number');
+            }
+        }
+    </script>
 </body>
 </html>
