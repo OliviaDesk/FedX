@@ -16,17 +16,16 @@ function trackPackage() {
     progressBar.innerText = "0%";
     result.innerHTML = "Tracking in progress...";
 
-    // Simulated tracking history
+    // Simulated tracking history with icons
     let trackingHistory = [
-        { status: "Label Created", time: "March 15, 2025 - 10:00 AM" },
-        { status: "Package Received", time: "March 15, 2025 - 2:30 PM" },
-        { status: "In Transit", time: "March 16, 2025 - 9:15 AM" },
-        { status: "Out for Delivery", time: "March 16, 2025 - 3:45 PM" },
-        { status: "Delivered", time: "March 16, 2025 - 7:00 PM" }
+        { status: "Label Created", time: "March 15, 2025 - 10:00 AM", icon: "fas fa-file-alt text-gray-500" },
+        { status: "Package Received", time: "March 15, 2025 - 2:30 PM", icon: "fas fa-box text-purple-800" },
+        { status: "In Transit", time: "March 16, 2025 - 9:15 AM", icon: "fas fa-truck text-orange-500" },
+        { status: "Out for Delivery", time: "March 16, 2025 - 3:45 PM", icon: "fas fa-shipping-fast text-purple-800" },
+        { status: "Delivered", time: "March 16, 2025 - 7:00 PM", icon: "fas fa-check-circle text-green-500" }
     ];
 
     let progress = 0;
-    let step = 0;
 
     let interval = setInterval(() => {
         progress += 25;
@@ -39,7 +38,8 @@ function trackPackage() {
             let trackingStep = trackingHistory[randomIndex];
 
             result.innerHTML = `
-                <p class="text-lg font-semibold text-purple-800">${trackingStep.status}</p>
+                <i class="${trackingStep.icon} text-3xl"></i>
+                <p class="text-lg font-semibold text-purple-800 mt-2">${trackingStep.status}</p>
                 <p class="text-gray-500">${trackingStep.time}</p>
             `;
         }
