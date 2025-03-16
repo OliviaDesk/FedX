@@ -15,6 +15,7 @@ function trackPackage() {
     progressBar.style.width = "0%";
     progressBar.innerText = "0%";
     result.innerHTML = "Tracking in progress...";
+    result.classList.remove("fade-in"); // Remove fade-in effect
 
     // Simulated tracking history with icons
     let trackingHistory = [
@@ -31,17 +32,21 @@ function trackPackage() {
         progress += 25;
         progressBar.style.width = progress + "%";
         progressBar.innerText = progress + "%";
+        progressBar.style.animation = "progressAnimation 4s ease-in-out";
 
         if (progress === 100) {
             clearInterval(interval);
             let randomIndex = Math.floor(Math.random() * trackingHistory.length);
             let trackingStep = trackingHistory[randomIndex];
 
-            result.innerHTML = `
-                <i class="${trackingStep.icon} text-3xl"></i>
-                <p class="text-lg font-semibold text-purple-800 mt-2">${trackingStep.status}</p>
-                <p class="text-gray-500">${trackingStep.time}</p>
-            `;
+            setTimeout(() => {
+                result.innerHTML = `
+                    <i class="${trackingStep.icon} text-3xl"></i>
+                    <p class="text-lg font-semibold text-purple-800 mt-2">${trackingStep.status}</p>
+                    <p class="text-gray-500">${trackingStep.time}</p>
+                `;
+                result.classList.add("fade-in"); // Apply fade-in animation
+            }, 500);
         }
     }, 1000); // Updates every second
 }
