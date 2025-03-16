@@ -3,37 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedEx Tracking - Enter Tracking Number</title>
+    <title>SwiftShip Express</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+            animation: float 3s infinite ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .footer {
+            background: #111;
+            color: white;
+            padding: 2rem 1rem;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .icon {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .popup {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: fadeInOut 4s infinite;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-10px); }
+            50% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
         }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
-    <header class="bg-purple-800 text-white py-4 text-center shadow-md flex items-center justify-center">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/FedEx_Express.svg" alt="FedEx Logo" class="h-10">
-    </header>
-
-    <div class="flex flex-grow items-center justify-center px-4">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Track Your Shipment</h1>
-            <input type="text" id="trackingNumber" class="w-full border rounded p-2 mb-4" placeholder="Enter Tracking Number" />
-            <button onclick="trackPackage()" class="w-full bg-purple-800 text-white py-2 rounded hover:bg-purple-900 transition">Track</button>
-        </div>
+<body>
+    <div class="popup">🚀 Track your shipment now!</div>
+    
+    <h1 class="text-white text-2xl font-bold mb-4"><i class="fas fa-shipping-fast icon"></i> Welcome to SwiftShip Express</h1>
+    <p class="text-white text-lg mb-6">Your trusted partner in seamless shipping and tracking.</p>
+    
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/FedEx_Express.svg" alt="SwiftShip Express Logo" class="h-10">
+    
+    <div class="card">
+        <h2 class="text-gray-700 text-lg font-semibold">Track Your Shipment</h2>
+        <p class="text-sm text-gray-500">Enter your tracking number to get real-time updates on your package.</p>
+        <form id="tracking-form" class="mt-4">
+            <input type="text" id="tracking-number" placeholder="Enter Tracking ID" class="w-full border p-3 rounded-md text-center shadow-md">
+            <button type="submit" class="w-full bg-blue-800 text-white mt-3 p-3 rounded-md font-semibold hover:bg-blue-900 transition">
+                Track <i class="fas fa-search"></i>
+            </button>
+        </form>
     </div>
-
+    
+    <div class="footer">
+        <h3 class="text-lg font-semibold">SwiftShip Express</h3>
+        <p class="text-sm mt-2">Delivering trust, speed, and reliability across the globe.</p>
+        <p class="text-sm mt-1">Join thousands of satisfied customers who track and ship with us every day.</p>
+    </div>
+    
     <script>
-        function trackPackage() {
-            const trackingNumber = document.getElementById('trackingNumber').value;
-            if (trackingNumber) {
-                window.location.href = `tracking.html?tracking=${trackingNumber}`;
+        document.getElementById("tracking-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const trackingId = document.getElementById("tracking-number").value.trim();
+            if (trackingId) {
+                window.location.href = `tracking.html?tracking=${trackingId}`;
             } else {
-                alert('Please enter a tracking number');
+                alert("Please enter a valid tracking number.");
             }
-        }
+        });
     </script>
 </body>
 </html>
