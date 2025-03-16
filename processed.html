@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftShip Express Tracking</title>
+    <title>SwiftShip Express - Processed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -95,12 +95,15 @@
         .step-content strong {
             font-weight: 600;
         }
-        .bounce {
-            animation: bounce 1s infinite alternate;
+        .package-info {
+            margin-top: 20px;
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
         }
-        @keyframes bounce {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-5px); }
+        .package-info p {
+            font-size: 1rem;
+            color: #333;
         }
         .footer {
             margin-top: 20px;
@@ -113,7 +116,7 @@
 <body>
     <div class="tracking-container">
         <div class="tracking-header">
-            <span><i class="fas fa-shipping-fast"></i> SwiftShip Express Tracking</span>
+            <span><i class="fas fa-shipping-fast"></i> SwiftShip Express - Processed</span>
             <div class="tracking-icons">
                 <i class="fas fa-pen"></i>
                 <i class="fas fa-star"></i>
@@ -121,59 +124,28 @@
             </div>
         </div>
         <div class="tracking-info">
-            <p><strong>Delivery Status:</strong> In Transit</p>
+            <p><strong>Status:</strong> Processed</p>
             <p><strong>Scheduled Delivery Date:</strong> Pending</p>
         </div>
         
         <div class="progress-bar">
-            <div class="step active bounce">
+            <div class="step active">
                 <div class="step-content">
                     <strong>Processed</strong><br>
                     Package processed at SwiftShip Express facility
                 </div>
             </div>
-            <div class="step complete">
-                <div class="step-content">
-                    <strong>In Transit</strong><br>
-                    Moving through SwiftShip Express network
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>Arrived at Facility</strong><br>
-                    Arrived at SwiftShip Express facility, Bridgeport, WV
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>On Vehicle for Delivery</strong><br>
-                    Package loaded onto delivery vehicle
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>Delivered</strong><br>
-                    Package successfully delivered
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>Failed Delivery Attempt</strong><br>
-                    Delivery attempt was unsuccessful
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>Delayed</strong><br>
-                    Delivery delayed due to unforeseen circumstances
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <strong>Held at Customs</strong><br>
-                    Package held at customs for clearance
-                </div>
-            </div>
+        </div>
+
+        <!-- Package Information Section -->
+        <div class="package-info">
+            <h3 class="font-semibold">Package Information</h3>
+            <p><strong>Sender:</strong> John Doe, 123 Main St, Springfield, IL</p>
+            <p><strong>Recipient:</strong> Jane Smith, 456 Oak Ave, Denver, CO</p>
+            <p><strong>Weight:</strong> 2.5 kg</p>
+            <p><strong>Item:</strong> Laptop</p>
+            <p><strong>Dimensions:</strong> 35cm x 25cm x 5cm</p>
+            <p><strong>Tracking ID:</strong> 9876543210</p>
         </div>
     </div>
     <div class="footer">
